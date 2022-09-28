@@ -8,14 +8,17 @@ public class CameraPositioner : MonoBehaviour
     public Animator transition;
     public GameObject camPos1;
     public GameObject directionMenuUI;
+    public static Vector3 newCameraPos;
+    public static bool clickedPositioner;
 
     // Update is called once per frame
     void Update()
     {
-       // if (Input.GetMouseButtonDown(0))
-       //{
-           // ChangeCamPosition();
-       // }
+        if (clickedPositioner == true)
+        {
+            ChangeCamPosition();
+            clickedPositioner = false;
+        }
         
     }
     public void ChangeCamPosition()
@@ -31,7 +34,7 @@ public class CameraPositioner : MonoBehaviour
         yield return new WaitForSeconds(1);
         //move cam
         transition.SetTrigger("End");
-        cam1.transform.position = camPos1.transform.position;
+        cam1.transform.position = newCameraPos;
 
     }
     public void Forward()
