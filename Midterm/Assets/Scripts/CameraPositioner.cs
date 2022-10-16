@@ -10,10 +10,14 @@ public class CameraPositioner : MonoBehaviour
     public GameObject directionMenuUI;
     public static Vector3 newCameraPos;
     public static bool clickedPositioner;
+    public static Vector3 actualCameraPos;
 
     // Update is called once per frame
     void Update()
     {
+        actualCameraPos = cam1.transform.position;
+
+
         if (clickedPositioner == true)
         {
             ChangeCamPosition();
