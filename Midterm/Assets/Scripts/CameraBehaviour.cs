@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
+    public static Vector3 actualCameraPos;
     /*public float hSpeed = 2f;
     public float vSpeed = 2f;
 
@@ -20,15 +21,13 @@ public class CameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        actualCameraPos = gameObject.transform.position;
         /*yaw += hSpeed * Input.GetAxis("Mouse X");
         pitch -= hSpeed * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;*/
-
-
     }
 
     public void Turnleft()

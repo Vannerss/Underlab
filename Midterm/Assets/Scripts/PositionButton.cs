@@ -14,34 +14,47 @@ public class PositionButton : MonoBehaviour
     void OnDrawGizmos() 
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, 8);
+        Gizmos.DrawWireSphere(transform.position, 8.2f);
     }
 
     void Start()
     {
         gameObject.GetComponent<MeshRenderer>().material = TransparentMaterial;
-        CameraPositioner.actualCameraPos = cameraPos;
+        
     }
 
     void Update()
     {
-        //distanceToCamera = gameObject.transform.position - CameraPositioner.actualCameraPos;
+        cameraPos = CameraBehaviour.actualCameraPos;
         distanceToCamera = Vector3.Distance(transform.position, cameraPos);
     }
 
     void OnMouseOver()
     {
-        gameObject.GetComponent<MeshRenderer>().material = SelectedMaterial;
+        if (distanceToCamera <= 8.2)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = SelectedMaterial;
+        }
+        
     }
 
     void OnMouseExit()
     {
-        gameObject.GetComponent<MeshRenderer>().material = TransparentMaterial;
+        if (distanceToCamera <= 8.2)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = TransparentMaterial;
+        }
+        
     }
 
     private void OnMouseDown()
     {
-        CameraPositioner.clickedPositioner = true;
-        CameraPositioner.newCameraPos = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
+
+        if (distanceToCamera <= 8.2)
+        {
+            CameraPositioner.clickedPositioner = true;
+            CameraPositioner.newCameraPos = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
+        }
+        
     }
 }
