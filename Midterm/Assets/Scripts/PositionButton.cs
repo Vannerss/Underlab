@@ -9,6 +9,7 @@ public class PositionButton : MonoBehaviour
     public bool isCorrectDistance;
     public float distanceToCamera;
     private Vector3 cameraPos;
+    AudioSource audioData;
     //in the editor this is what you would set as the object you wan't to change
 
     void OnDrawGizmos() 
@@ -54,6 +55,8 @@ public class PositionButton : MonoBehaviour
         {
             CameraPositioner.clickedPositioner = true;
             CameraPositioner.newCameraPos = new Vector3(gameObject.transform.position.x, 1.25f, gameObject.transform.position.z);
+            audioData = GetComponent<AudioSource>();
+            audioData.Play(0);
         }
         
     }
