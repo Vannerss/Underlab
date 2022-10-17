@@ -19,7 +19,7 @@ public class WaterLevelManager : MonoBehaviour
             Timer = 0.0f;
             transformY.y += increaseRate;
             this.transform.position = transformY;
-            Debug.Log(transformY);
+            //Debug.Log(transformY);
         }
 
     }

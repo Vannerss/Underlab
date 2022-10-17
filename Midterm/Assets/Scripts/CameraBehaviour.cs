@@ -2,35 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraBehaviour : MonoBehaviour
+public class CameraBehaviour : MonoBehaviour, IDataPersistence
 {
     public static Vector3 actualCameraPos;
-    public static Vector3 actualCameraRot = new Vector3 (0,0,0);
-    /*public float hSpeed = 2f;
-    public float vSpeed = 2f;
+    public static Vector3 actualCameraRot = Vector3.zero;
 
-    public float yaw = 0f;
-    public float pitch = 0f;*/
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void LoadData(GameData data)
     {
-        
+        this.gameObject.transform.position = data.cameraPositon;
+        this.gameObject.transform.eulerAngles = data.cameraRotation;
     }
 
-    // Update is called once per frame
+    public void SaveData(ref GameData data)
+    {
+        data.cameraPositon = this.gameObject.transform.position;
+        data.cameraRotation = this.gameObject.transform.eulerAngles;
+    }
+
     void Update()
     {
         actualCameraPos = gameObject.transform.position;
         actualCameraRot.y = gameObject.transform.rotation.y;
-        //Debug.Log(actualCameraRot);
-        /*yaw += hSpeed * Input.GetAxis("Mouse X");
-        pitch -= hSpeed * Input.GetAxis("Mouse Y");
-
-        transform.eulerAngles = new Vector3(pitch, yaw, 0);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;*/
     }
 
     public void Turnleft()
