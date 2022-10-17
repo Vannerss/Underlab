@@ -6,7 +6,7 @@ public class WaterLevelManager : MonoBehaviour
 {
     public float Timer = 0.0f;
     public float reachTarget = 1.3f;
-    public float increaseRate = 0.0027f;
+    public static float increaseRate = 0.0027f;
     public float reduceTotalWater = 0.4f;
     public float currentY = 0.5f;
     //public Vector3 transformY = new Vector3(0, 0.0027f, 0);
