@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraBehaviour : MonoBehaviour
 {
     public static Vector3 actualCameraPos;
+    public static Vector3 actualCameraRot = new Vector3 (0,0,0);
     /*public float hSpeed = 2f;
     public float vSpeed = 2f;
 
@@ -22,6 +23,8 @@ public class CameraBehaviour : MonoBehaviour
     void Update()
     {
         actualCameraPos = gameObject.transform.position;
+        actualCameraRot.y = gameObject.transform.rotation.y;
+        //Debug.Log(actualCameraRot);
         /*yaw += hSpeed * Input.GetAxis("Mouse X");
         pitch -= hSpeed * Input.GetAxis("Mouse Y");
 
