@@ -53,7 +53,7 @@ public class PositionButton : MonoBehaviour
         if (distanceToCamera <= 8.2)
         {
             CameraPositioner.clickedPositioner = true;
-            CameraPositioner.newCameraPos = new Vector3(gameObject.transform.position.x, 1, gameObject.transform.position.z);
+            CameraPositioner.newCameraPos = new Vector3(gameObject.transform.position.x, 1.25f, gameObject.transform.position.z);
         }
         
     }
