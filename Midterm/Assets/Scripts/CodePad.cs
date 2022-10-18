@@ -9,6 +9,9 @@ public class CodePad : MonoBehaviour
     string alpha;
     public Text codeDisplay = null;
     public string correctCode;
+    public Animation openDoor;
+    public GameObject mainUI;
+    public GameObject codePad3D;
 
     public void WriteFunction(string codeSlot)
     {
@@ -29,14 +32,24 @@ public class CodePad : MonoBehaviour
             codeDisplay.text = codeDisplay.text.Substring(0, codeDisplay.text.Length - 1);
             wordIndex--;
         }
-        
+        else if (wordIndex == 0)
+        {
+            gameObject.SetActive(false);
+            mainUI.SetActive(true);
+        }
+
+
+
     }
 
     public void CheckCode()
     {
         if (code == correctCode)
         {
-            Debug.Log("EsoTilin");
+            mainUI.SetActive(true);
+            codePad3D.GetComponent<BoxCollider>().enabled = false;
+            openDoor.Play();
+            gameObject.SetActive(false);
         }
     }
 
