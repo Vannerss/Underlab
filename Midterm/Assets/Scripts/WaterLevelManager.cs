@@ -22,7 +22,6 @@ public class WaterLevelManager : MonoBehaviour
             this.transform.position = transformY;
             //Debug.Log(transformY);
         }
-
     }
 
     public void AddTime()
