@@ -14,6 +14,7 @@ public class WaterLevelManager : MonoBehaviour
     private void Update()
     {
         Timer += Time.deltaTime;
+        Debug.Log(Timer); 
         if(Timer >= 1.0f)
         {
             Timer = 0.0f;
@@ -26,7 +27,12 @@ public class WaterLevelManager : MonoBehaviour
 
     public void AddTime()
     {
+        
         transformY.y -= reduceTotalWater;
+        if(transformY.y < 0.5f)
+        {
+            transformY.y = 0.5f;
+        }
         this.transform.position = transformY;
     }
 }
