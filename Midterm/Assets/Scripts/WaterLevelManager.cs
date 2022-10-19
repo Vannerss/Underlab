@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterLevelManager : MonoBehaviour
+public class WaterLevelManager : MonoBehaviour, IDataPersistence
 {
     public float Timer = 0.0f;
     public float reachTarget = 1.3f;
@@ -11,10 +11,21 @@ public class WaterLevelManager : MonoBehaviour
     public float currentY = 0.5f;
     //public Vector3 transformY = new Vector3(0, 0.0027f, 0);
     public static Vector3 transformY = new Vector3(-11f, 0.5f, 60.9f);
+
+     public void LoadData(GameData data)
+    {
+        transformY = data.waterLevel;
+        this.transform.position = transformY;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.waterLevel = this.transform.position;
+    }
     private void Update()
     {
         Timer += Time.deltaTime;
-        Debug.Log(Timer); 
+        //Debug.Log(Timer); 
         if(Timer >= 1.0f)
         {
             Timer = 0.0f;
@@ -34,4 +45,6 @@ public class WaterLevelManager : MonoBehaviour
         }
         this.transform.position = transformY;
     }
+
+
 }

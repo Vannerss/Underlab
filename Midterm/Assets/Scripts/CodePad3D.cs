@@ -13,12 +13,6 @@ public class CodePad3D : MonoBehaviour
         codePadUI.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnMouseDown()
     {
         codePadUI.SetActive(true);
