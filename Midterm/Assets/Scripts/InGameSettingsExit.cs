@@ -9,7 +9,7 @@ public class InGameSettingsExit : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 1f;
-        gameUI.SetActive(false);
+        gameUI.SetActive(true);
         this.gameObject.SetActive(false);
     }
 }
