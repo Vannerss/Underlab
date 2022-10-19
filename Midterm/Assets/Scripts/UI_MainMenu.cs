@@ -46,6 +46,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void Settings()
     {
+        HideMenu();
         settingsMenu.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
     }

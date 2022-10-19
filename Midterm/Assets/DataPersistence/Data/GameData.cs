@@ -18,7 +18,6 @@ public class GameData
     {
         this.cameraPositon = new Vector3(-11.25f, 1.25f, -2.5f);
         this.cameraRotation = Vector3.zero;
-
         this.waterLevel = new Vector3(0, 0.5f, 0);
 
         this.drainsOpened = new SerializableDictionary<string, bool>();
